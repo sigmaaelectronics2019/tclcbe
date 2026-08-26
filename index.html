@@ -10,12 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#0A1F3D;
+    --blue:#0056D2;
+    --blue-deep:#003C99;
     --ink:#12161F;
-    --paper:#F5F6F8;
+    --paper:#FFFFFF;
+    --paper-dim:#F3F5F8;
     --red:#E4002B;
-    --steel:#8C97A8;
-    --white:#FFFFFF;
+    --steel:#6B7686;
+    --line:#E4E8EE;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -29,44 +31,40 @@
     font-family:'Oswald', sans-serif;
     letter-spacing:0.01em;
     text-transform:uppercase;
-    color:var(--navy);
+    color:var(--ink);
   }
   .mono{font-family:'IBM Plex Mono', monospace;}
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
   .container{max-width:1120px;margin:0 auto;padding:0 24px;}
-  :focus-visible{outline:3px solid var(--red);outline-offset:2px;}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:2px;}
 
   /* Header */
   header{
     position:sticky;top:0;z-index:50;
-    background:var(--navy);
+    background:var(--paper);
     border-bottom:3px solid var(--red);
   }
   .header-inner{
     display:flex;align-items:center;justify-content:space-between;
     padding:16px 24px;max-width:1120px;margin:0 auto;
   }
-  .logo{
-    display:flex;align-items:center;gap:10px;
-    color:var(--white);
-  }
+  .logo{display:flex;align-items:center;gap:10px;}
   .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--red);}
-  .logo-text{font-family:'Oswald';font-weight:600;font-size:1.15rem;letter-spacing:0.03em;text-transform:uppercase;color:var(--white);}
-  .logo-text span{color:var(--red);}
+  .logo-text{font-family:'Oswald';font-weight:600;font-size:1.15rem;letter-spacing:0.03em;text-transform:uppercase;color:var(--ink);}
+  .logo-text span{color:var(--blue);}
   nav{display:flex;gap:28px;}
   nav a{
-    color:var(--white);font-family:'Oswald';font-size:0.85rem;
+    color:var(--ink);font-family:'Oswald';font-size:0.85rem;
     text-transform:uppercase;letter-spacing:0.08em;
     padding:6px 0;border-bottom:2px solid transparent;
     transition:border-color .2s ease;
   }
-  nav a:hover{border-color:var(--red);}
-  .nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.6rem;cursor:pointer;}
+  nav a:hover{border-color:var(--blue);}
 
   /* Hero */
   .hero{
-    background:linear-gradient(180deg,var(--navy) 0%, #0D2A52 100%);
+    background:linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
     padding:64px 24px 88px;
     position:relative;
     overflow:hidden;
@@ -82,50 +80,82 @@
   }
   .eyebrow::before{content:"";width:24px;height:1px;background:var(--red);}
   .hero h1{
-    color:var(--white);font-size:clamp(2.1rem,4.5vw,3.4rem);
+    color:var(--ink);font-size:clamp(2.1rem,4.5vw,3.4rem);
     line-height:1.05;margin-bottom:20px;font-weight:600;
   }
-  .hero h1 em{font-style:normal;color:var(--red);}
-  .hero p{color:#C7CEDA;font-size:1.05rem;max-width:46ch;margin-bottom:28px;}
+  .hero h1 em{font-style:normal;color:var(--blue);}
+  .hero p{color:var(--steel);font-size:1.05rem;max-width:46ch;margin-bottom:28px;}
   .btn-row{display:flex;gap:14px;flex-wrap:wrap;}
   .btn{
     display:inline-flex;align-items:center;gap:8px;
     font-family:'Oswald';font-size:0.85rem;text-transform:uppercase;letter-spacing:0.06em;
     padding:14px 26px;border-radius:2px;transition:transform .15s ease, background .2s ease;
   }
-  .btn-primary{background:var(--red);color:var(--white);}
+  .btn-primary{background:var(--red);color:#fff;}
   .btn-primary:hover{background:#c40025;transform:translateY(-2px);}
-  .btn-ghost{border:1px solid #445372;color:var(--white);}
-  .btn-ghost:hover{background:rgba(255,255,255,0.08);}
+  .btn-ghost{border:1px solid var(--blue);color:var(--blue);}
+  .btn-ghost:hover{background:rgba(0,86,210,0.08);}
 
-  /* TV bezel signature element */
+  /* TV bezel signature element - illustrative, not a real product photo */
   .tv-frame{
-    background:#1A1A1A;
+    background:#15181F;
     border-radius:10px;
     padding:16px 16px 34px;
-    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+    box-shadow:0 30px 60px -20px rgba(10,40,90,0.35);
     position:relative;
   }
   .tv-frame::after{
     content:"";position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
-    width:64px;height:5px;background:#2C2C2C;border-radius:3px;
+    width:64px;height:5px;background:#2C2F38;border-radius:3px;
   }
   .tv-screen{
     aspect-ratio:16/10;border-radius:3px;overflow:hidden;
-    background:radial-gradient(circle at 30% 20%, #163057 0%, #0A1428 65%, #060B18 100%);
+    background:radial-gradient(circle at 30% 20%, var(--blue-deep) 0%, #081228 65%, #04060F 100%);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;padding:20px;
     position:relative;
   }
   .tv-screen .glow{
     position:absolute;inset:0;
-    background:radial-gradient(circle at 50% 40%, rgba(228,0,43,0.18), transparent 60%);
+    background:radial-gradient(circle at 50% 40%, rgba(228,0,43,0.20), transparent 60%);
     animation:pulse 5s ease-in-out infinite;
   }
+  .tv-screen .bars{
+    position:absolute;inset:0;display:flex;align-items:flex-end;gap:6px;
+    padding:20px;opacity:0.35;
+  }
+  .tv-screen .bars span{
+    flex:1;background:linear-gradient(180deg, var(--blue), transparent);
+    border-radius:2px 2px 0 0;
+  }
   @keyframes pulse{0%,100%{opacity:0.6;}50%{opacity:1;}}
-  .tv-screen .brand{font-family:'Oswald';color:var(--white);font-weight:700;font-size:2.2rem;letter-spacing:0.05em;z-index:1;}
+  .tv-screen .brand{font-family:'Oswald';color:#fff;font-weight:700;font-size:2.2rem;letter-spacing:0.05em;z-index:1;}
   .tv-screen .brand span{color:var(--red);}
-  .tv-screen .tagline{font-family:'IBM Plex Mono';color:#8FA3C4;font-size:0.75rem;margin-top:8px;letter-spacing:0.08em;z-index:1;text-transform:uppercase;}
+  .tv-screen .tagline{font-family:'IBM Plex Mono';color:#9FB4DA;font-size:0.75rem;margin-top:8px;letter-spacing:0.08em;z-index:1;text-transform:uppercase;}
+
+  /* Photo placeholder slots - replace with your own showroom photos */
+  .photo-slot{
+    aspect-ratio:16/10;border-radius:8px;
+    background:repeating-linear-gradient(135deg, #E9EDF3, #E9EDF3 10px, #F3F5F8 10px, #F3F5F8 20px);
+    border:2px dashed #B7C2D6;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;gap:8px;padding:20px;
+  }
+  .photo-slot .icon{
+    width:44px;height:44px;border-radius:50%;
+    background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono';font-size:1.1rem;color:var(--blue);
+  }
+  .photo-slot .label{font-family:'Oswald';font-size:0.85rem;letter-spacing:0.04em;color:var(--ink);text-transform:uppercase;}
+  .photo-slot .hint{font-family:'IBM Plex Mono';font-size:0.7rem;color:var(--steel);max-width:26ch;}
+  .tv-frame .photo-slot{background:repeating-linear-gradient(135deg, #1B2030, #1B2030 10px, #12161F 10px, #12161F 20px);border-color:#3A4258;}
+  .tv-frame .photo-slot .label{color:#fff;}
+  .tv-frame .photo-slot .hint{color:#8FA0C4;}
+  .tv-frame .photo-slot .icon{background:#12161F;border-color:#3A4258;color:#fff;}
+
+  .gallery{background:var(--paper-dim);}
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
 
   @media (prefers-reduced-motion: reduce){
     .tv-screen .glow{animation:none;}
@@ -140,86 +170,91 @@
   .section-head p{color:var(--steel);margin-top:10px;}
 
   /* Products */
-  .products{background:var(--white);}
+  .products{background:var(--paper-dim);}
   .product-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;
   }
   .product-card{
-    background:#0F1522;border-radius:8px;padding:14px 14px 22px;
+    background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 14px 22px;
     transition:transform .2s ease, box-shadow .2s ease;
   }
-  .product-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -18px rgba(10,31,61,0.35);}
+  .product-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -18px rgba(0,60,153,0.18);}
   .product-screen{
     aspect-ratio:16/10;border-radius:3px;margin-bottom:14px;
-    background:linear-gradient(135deg,#152036,#0A0E17);
+    background:linear-gradient(135deg, var(--blue-deep), #060B18);
     display:flex;align-items:center;justify-content:center;
     position:relative;overflow:hidden;
   }
+  .product-screen::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 70% 20%, rgba(228,0,43,0.25), transparent 55%);
+  }
   .product-screen .badge{
-    position:absolute;top:10px;left:10px;
+    position:absolute;top:10px;left:10px;z-index:1;
     font-family:'IBM Plex Mono';font-size:0.65rem;color:var(--red);
     border:1px solid var(--red);padding:2px 8px;border-radius:20px;letter-spacing:0.06em;text-transform:uppercase;
+    background:rgba(255,255,255,0.9);
   }
   .product-screen .size{
-    font-family:'Oswald';color:var(--white);font-size:2rem;font-weight:600;
+    font-family:'Oswald';color:#fff;font-size:2rem;font-weight:600;z-index:1;
   }
-  .product-screen .size sup{font-size:1rem;color:var(--steel);}
-  .product-card h3{color:var(--white);font-size:1rem;margin-bottom:6px;}
-  .product-card .specs{font-family:'IBM Plex Mono';font-size:0.75rem;color:#8FA3C4;margin-bottom:12px;line-height:1.7;}
+  .product-screen .size sup{font-size:1rem;color:#9FB4DA;}
+  .product-card h3{color:var(--ink);font-size:1rem;margin-bottom:6px;text-transform:none;}
+  .product-card .specs{font-family:'IBM Plex Mono';font-size:0.75rem;color:var(--steel);margin-bottom:12px;line-height:1.7;}
   .product-card .price{
     display:flex;align-items:baseline;justify-content:space-between;
-    border-top:1px solid #253048;padding-top:12px;
+    border-top:1px solid var(--line);padding-top:12px;
   }
-  .price .amount{font-family:'Oswald';color:var(--white);font-size:1.15rem;}
+  .price .amount{font-family:'Oswald';color:var(--blue);font-size:1.15rem;}
   .price .from{font-family:'IBM Plex Mono';font-size:0.65rem;color:var(--steel);text-transform:uppercase;}
 
   /* Store / hours */
   .store{background:var(--paper);}
   .store-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
   .hours-table{width:100%;border-collapse:collapse;margin-top:6px;}
-  .hours-table tr{border-bottom:1px solid #DDE1E8;}
+  .hours-table tr{border-bottom:1px solid var(--line);}
   .hours-table td{padding:12px 0;font-family:'IBM Plex Mono';font-size:0.9rem;}
-  .hours-table td:first-child{color:var(--navy);font-weight:500;}
+  .hours-table td:first-child{color:var(--ink);font-weight:500;}
   .hours-table td:last-child{text-align:right;color:var(--steel);}
-  .map-wrap{border-radius:8px;overflow:hidden;border:1px solid #DDE1E8;box-shadow:0 20px 40px -24px rgba(10,31,61,0.3);}
+  .map-wrap{border-radius:8px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 40px -24px rgba(0,60,153,0.2);}
   .map-wrap iframe{width:100%;height:320px;border:0;display:block;}
   .address-block{margin-top:18px;font-size:0.95rem;color:var(--ink);}
-  .address-block strong{color:var(--navy);}
+  .address-block strong{color:var(--blue);}
 
   /* Contact */
-  .contact{background:var(--navy);}
-  .contact .section-head h2, .contact .section-head p{color:var(--white);}
-  .contact .section-head p{color:#C7CEDA;}
+  .contact{background:var(--blue-deep);}
+  .contact .section-head h2, .contact .section-head p{color:#fff;}
+  .contact .section-head p{color:#C7D4EA;}
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
   .quick-contact{display:flex;flex-direction:column;gap:16px;}
   .quick-card{
-    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
     border-radius:8px;padding:20px;display:flex;gap:14px;align-items:flex-start;
   }
-  .quick-card .icon{color:var(--red);font-family:'IBM Plex Mono';font-size:0.75rem;border:1px solid var(--red);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .quick-card h3{color:var(--white);font-size:0.95rem;text-transform:none;margin-bottom:4px;font-family:'Source Sans 3';font-weight:600;}
-  .quick-card p{color:#B9C2D3;font-size:0.88rem;}
-  .quick-card a{color:var(--white);border-bottom:1px solid var(--red);}
+  .quick-card .icon{color:var(--red);font-family:'IBM Plex Mono';font-size:0.75rem;border:1px solid var(--red);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;}
+  .quick-card h3{color:#fff;font-size:0.95rem;text-transform:none;margin-bottom:4px;font-family:'Source Sans 3';font-weight:600;}
+  .quick-card p{color:#C7D4EA;font-size:0.88rem;}
+  .quick-card a{color:#fff;border-bottom:1px solid var(--red);}
 
   form{display:flex;flex-direction:column;gap:14px;}
-  label{font-family:'IBM Plex Mono';font-size:0.72rem;color:#B9C2D3;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;display:block;}
+  label{font-family:'IBM Plex Mono';font-size:0.72rem;color:#C7D4EA;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;display:block;}
   input, textarea{
-    width:100%;padding:12px 14px;background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.18);border-radius:4px;
-    color:var(--white);font-family:'Source Sans 3';font-size:0.95rem;
+    width:100%;padding:12px 14px;background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.2);border-radius:4px;
+    color:#fff;font-family:'Source Sans 3';font-size:0.95rem;
   }
-  input::placeholder, textarea::placeholder{color:#6E7A93;}
+  input::placeholder, textarea::placeholder{color:#8FA0C4;}
   textarea{resize:vertical;min-height:100px;}
   input:focus, textarea:focus{border-color:var(--red);outline:none;}
   .form-submit{align-self:flex-start;margin-top:6px;}
 
   /* Footer */
-  footer{background:#081327;color:#8291A9;padding:36px 24px;}
+  footer{background:var(--ink);color:#9AA5B5;padding:36px 24px;}
   .footer-inner{
     max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;
     flex-wrap:wrap;gap:16px;font-size:0.85rem;
   }
-  .footer-inner strong{color:var(--white);}
+  .footer-inner strong{color:#fff;}
 
   @media (max-width:860px){
     .hero-inner{grid-template-columns:1fr;}
@@ -256,10 +291,11 @@
       </div>
     </div>
     <div class="tv-frame">
-      <div class="tv-screen">
-        <div class="glow"></div>
-        <div class="brand">TCL<span>.</span></div>
-        <div class="tagline">Now Showing · Coimbatore</div>
+      <!-- Replace this photo-slot div with: <img src="your-tv-photo.jpg" alt="TCL TV on display" style="aspect-ratio:16/10;border-radius:3px;object-fit:cover;"> -->
+      <div class="photo-slot">
+        <div class="icon">📷</div>
+        <div class="label">Add Showroom Photo</div>
+        <div class="hint">Photo of your TV on display goes here</div>
       </div>
     </div>
   </div>
@@ -330,6 +366,34 @@
   </div>
 </section>
 
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Showroom Gallery</div>
+      <h2>See It In Person</h2>
+      <p>Photos of the actual showroom and TVs on display — add your own below.</p>
+    </div>
+    <div class="gallery-grid">
+      <!-- Replace each photo-slot div with: <img src="your-photo.jpg" alt="description" style="aspect-ratio:16/10;border-radius:8px;object-fit:cover;"> -->
+      <div class="photo-slot">
+        <div class="icon">📷</div>
+        <div class="label">Storefront Photo</div>
+        <div class="hint">Add a photo of your shop entrance</div>
+      </div>
+      <div class="photo-slot">
+        <div class="icon">📷</div>
+        <div class="label">TV Wall Photo</div>
+        <div class="hint">Add a photo of the TVs on display</div>
+      </div>
+      <div class="photo-slot">
+        <div class="icon">📷</div>
+        <div class="label">Interior Photo</div>
+        <div class="hint">Add a photo of the showroom floor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="store" id="store">
   <div class="container">
     <div class="section-head">
@@ -341,18 +405,18 @@
       <div>
         <table class="hours-table">
           <tr><td>Monday – Sunday</td><td>10:00 AM – 9:00 PM</td></tr>
-          
         </table>
         <div class="address-block">
           <strong>TCL Brand Store Coimbatore</strong><br>
           361, D.B ROAD, R.S PURAM<br>
-          Coimbatore, Tamil Nadu — 641046 <br>
+          Coimbatore, Tamil Nadu — 641002<br>
           Phone: 8012124444
         </div>
       </div>
       <div class="map-wrap">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.4728188674076!2d76.95147688466886!3d11.003107955817379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859a56476f77b%3A0xb635c32dfdad67ad!2sTCL%20Exclusive%20Showroom%20(Sigmaa%20Electronics)!5e0!3m2!1sen!2sin!4v1787718941317!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.4728188674076!2d76.95147688466886!3d11.003107955817379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859a56476f77b%3A0xb635c32dfdad67ad!2sTCL%20Exclusive%20Showroom%20(Sigmaa%20Electronics)!5e0!3m2!1sen!2sin!4v1787718941317!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="Store location map"></iframe>
@@ -374,7 +438,7 @@
           <span class="icon">☎</span>
           <div>
             <h3>Call the Showroom</h3>
-            <p><a href="tel:+91 8012124444">+91 8012124444</a></p>
+            <p><a href="tel:+918012124444">+91 8012124444</a></p>
           </div>
         </div>
         <div class="quick-card">
